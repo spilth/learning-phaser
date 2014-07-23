@@ -1,8 +1,5 @@
 module.exports = (grunt) ->
-  grunt.loadNpmTasks('grunt-contrib-copy')
-  grunt.loadNpmTasks('grunt-contrib-clean')
-  grunt.loadNpmTasks('grunt-contrib-connect')
-  grunt.loadNpmTasks('grunt-contrib-watch')
+  require('load-grunt-tasks')(grunt)
 
   SRC_PATH = 'src'
   DIST_PATH = 'dist'
