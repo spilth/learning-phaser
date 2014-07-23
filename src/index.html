@@ -4,12 +4,29 @@
     <title>Test</title>
     <script src="js/phaser.min.js"></script>
     <script src="js/game.js"></script>
-    <script>
-      var game = new Phaser.Game(640,384, Phaser.AUTO);
-      game.state.add('game', Game);
-      game.state.start('game');
-    </script>
+    <style>
+        body {
+            background: #000;
+        }
+
+        canvas {
+            margin: auto;
+            width: 960px;
+            height: 640px;
+            image-rendering: -moz-crisp-edges;         /* Firefox */
+            image-rendering:   -o-crisp-edges;         /* Opera */
+            image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+            image-rendering: crisp-edges;
+            border: 2px solid #fff;
+        }
+    </style>
   </head>
   <body>
+    <script>
+        var game = new Phaser.Game(480,320, Phaser.AUTO);
+        game.state.add('game', Game);
+        game.state.start('game');
+    </script>
   </body>
+
 </html>

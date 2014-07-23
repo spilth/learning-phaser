@@ -13,6 +13,10 @@ class Game
     @game.load.tilemap('map', 'levels/test1.json', null, Phaser.Tilemap.TILED_JSON)
 
   create: ->
+#    @game.stage.scale.minWidth = 800
+#    @game.stage.scale.minHeight = 600
+#    @game.stage.scale.setSize()
+
     @game.physics.startSystem(Phaser.Physics.ARCADE);
     map = this.add.tilemap('map')
     map.addTilesetImage('test16')
@@ -21,7 +25,6 @@ class Game
     map.createLayer('50% Opacity')
     @player = game.add.sprite(304,384, 'player')
     map.createLayer('Foreground')
-
     map.setCollisionBetween(1,99, true, @layer)
     @layer.resizeWorld()
 
