@@ -9,13 +9,19 @@ module.exports = (grunt) ->
       all:
         ['dist']
 
+    coffee:
+      compile:
+        files: {
+          'dist/js/game.js': 'src/coffee/game.coffee'
+        }
+
     copy:
       dist:
         files: [
           {
             cwd: SRC_PATH
             expand: true
-            src: ['**/*'],
+            src: ['**/*', '!coffee/**']
             dest: DIST_PATH
           },
           {
@@ -30,7 +36,7 @@ module.exports = (grunt) ->
     watch:
       html:
         files: ['src/**/*']
-        tasks: ['copy:dist']
+        tasks: ['build']
 
     connect:
       server:
@@ -39,8 +45,8 @@ module.exports = (grunt) ->
           livereload: true
 
   grunt.registerTask 'build', [
-    'clean'
     'copy'
+    'coffee'
   ]
 
   grunt.registerTask 'default', [
